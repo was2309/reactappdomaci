@@ -1,6 +1,8 @@
 
+import { Route, Routes } from 'react-router';
 import './App.css';
 import KnjigaItemList from './components/knjiga/KnjigaItemList';
+import KorpaList from './components/korpa/KorpaList';
 import NavBar from './components/navbar/NavBar';
 
 const BOOKS = [
@@ -32,8 +34,11 @@ function App() {
   return (
     <div className="App">
      <NavBar/>
+     <Routes>
+       <Route path='/' element={<KnjigaItemList knjige={BOOKS}/>}/>
+       <Route path='/korpa' element={<KorpaList/>}/>
+     </Routes>
      
-     <KnjigaItemList knjige={BOOKS}/>
     </div>
   );
 }

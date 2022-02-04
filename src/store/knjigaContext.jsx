@@ -34,13 +34,22 @@ const dodajKnjigu=(knjiga)=>{
 }
 
 const ukloniKnjigu=(id)=>{
-    const nadjena=knjige.find(k=>k.id===id);
+    const nadjena=knjige.findIndex(k=>k.id===id);
     console.log(nadjena);
-    if(!nadjena){
+    if(nadjena==-1){
         return;
     }
+    const knjiga=knjige[nadjena];
+    if(knjiga.brojPonavljanja===1){
     const filterKnjige=knjige.filter(k=>k.id!==id);
     setKnjige(filterKnjige);
+    }else{
+        const prevKnjige=[...knjige];
+        knjiga.brojPonavljanja-=1;
+        prevKnjige[nadjena]=knjiga;
+        setKnjige(prevKnjige);
+
+    }
     setUkupanBrojKnjiga(prevValue=>prevValue-1);
 }
 
