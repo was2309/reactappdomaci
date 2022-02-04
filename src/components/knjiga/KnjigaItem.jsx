@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ImPlus, ImMinus } from "react-icons/im";
+import { KnjigaContext } from '../../store/knjigaContext';
 
-
-const knjigaItem = ({knjiga})=> {
+const KnjigaItem = ({knjiga})=> {
     const desing = {margin: 10, borderStyle: "dashed" };
+
+    const knjigaCtx=useContext(KnjigaContext);
+
     const addToCart = () => {
-        console.log("add");
+        const k={
+            id:knjiga.id,
+            naslov:knjiga.naslov,
+            opis:knjiga.opis,
+            slikaUrl:knjiga.slikaUrl,
+            brojPonavljanja:1
+        }
+        knjigaCtx.dodajKnjigu(k);
     };
 
     const removeFromCart = () => {
-        console.log("remove");
+        knjigaCtx.ukloniKnjigu(knjiga.id);
     };
     
     
@@ -28,4 +38,4 @@ const knjigaItem = ({knjiga})=> {
 
 }
 
-export default knjigaItem;
+export default KnjigaItem;

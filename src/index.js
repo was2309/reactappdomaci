@@ -4,11 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { KnjigaProvider } from './store/knjigaContext';
+import {BrowserRouter} from 'react-router-dom'
 
 ReactDOM.render(
-    <KnjigaProvider>
+    <BrowserRouter>
+     <KnjigaProvider>
       <App />
     </KnjigaProvider>
+    </BrowserRouter>
+   
    
   ,
   document.getElementById('root')
