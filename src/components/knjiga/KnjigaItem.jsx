@@ -26,7 +26,7 @@ const KnjigaItem = ({knjiga})=> {
     
     return(
         <div className="card" style={desing}>
-            <img className="card-img-top" src={knjiga.slikaUrl} alt="Ivo Andric slika" width={200}/>
+            <img style={{marginTop:'20px'}} className="card-img-top" src={knjiga.slikaUrl} alt="Ivo Andric slika" width={200}/>
             <div className="card-body">
                 <h3 className="card-title">{knjiga.naslov}</h3>
                 <p className="card-text"> {knjiga.opis}</p>
